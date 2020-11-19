@@ -3,7 +3,8 @@ VALUES ('Plat', 'Blanquette de Veau', 'Une délicieuse blanquette accompagnée d
         'https://assets.afcdn.com/recipe/20190529/93189_w600.jpg',
         'https://www.youtube.com/watch?v=fW2flBSkv1M&ab_channel=Rujay', '15', '75', '9/10'),
 
-       ('Plat', 'Spaghetti bolognaise', 'Des pâtes accompagnées d''une délicieuse sauce de Bologne à base de viande de boeuf, de tomates et d''oignons.',
+       ('Plat', 'Spaghetti bolognaise',
+        'Des pâtes accompagnées d''une délicieuse sauce de Bologne à base de viande de boeuf, de tomates et d''oignons.',
         'https://i.imgur.com/xqnMHjD.jpg',
         'https://www.youtube.com/watch?v=fW2flBSkv1M&ab_channel=Rujay', '15', '15', '7.5/10'),
 
@@ -20,3 +21,17 @@ VALUES ('Plat', 'Blanquette de Veau', 'Une délicieuse blanquette accompagnée d
         'https://img.cuisineaz.com/610x610/2018-02-24/i135965-salade-tomate-mozzarella.jpeg',
         'https://www.youtube.com/watch?v=fW2flBSkv1M&ab_channel=Rujay', '60', '0', '9/10');
 
+INSERT INTO INGREDIENT (recette_id, nom, quantite)
+VALUES (1, 'blanquette de veau', '1 kg'),
+       (1, 'cube de bouillon de légumes', '1'),
+       (1, 'carottes', '2'),
+       (1, 'oignon', '1'),
+       (1, 'champignons coupés', '250g'),
+       (1, 'petit pot de crème fraiche', '1'),
+       (1, 'citron', '1'),
+       (1, 'jaune d''oeuf', '1'),
+       (1, 'farine', '30g'),
+       (1, 'vin Blanc', '20cl'),
+       (1, 'Sel', ''),
+       (1, 'Poivre', '')
+;
