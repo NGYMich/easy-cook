@@ -22,3 +22,9 @@ CREATE TABLE IF NOT EXISTS INGREDIENT (
     FOREIGN KEY (recette_id) references RECETTE(recette_id)
 );
 
+CREATE TABLE IF NOT EXISTS ETAPE(
+    recette_id INT,
+    etape VARCHAR(500),
+    FOREIGN KEY (recette_id) references RECETTE(recette_id)
+)
+

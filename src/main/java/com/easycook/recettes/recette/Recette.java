@@ -45,7 +45,10 @@ public class Recette {
     @OneToMany(mappedBy="recette", targetEntity = Ingredient.class)
     private List<Ingredient> liste_ingredients = new ArrayList<Ingredient>();
 
-
+    @ElementCollection
+    @CollectionTable(name = "etape", joinColumns = @JoinColumn(name = "recette_id"))
+    @Column(name="etape")
+    private List<String> liste_etapes = new ArrayList<String>();
 /*    @ElementCollection
     @CollectionTable(name = "recette_item_maping",
             joinColumns = {@JoinColumn(name = "recette_id", referencedColumnName = "id")})
