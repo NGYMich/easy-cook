@@ -36,6 +36,9 @@ public class Recette {
     @Column
     private String note;
 
+    @Column
+    private String categorie;
+
 
     //private List<String> ingredients;
 
