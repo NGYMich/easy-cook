@@ -20,7 +20,22 @@ public class Recette {
 
     @Column
     private String description;
-    
+
+    @Column
+    private String lien_image;
+
+    @Column
+    private String lien_video;
+
+    @Column
+    private int temps_preparation;
+
+    @Column
+    private int temps_cuisson;
+
+    @Column
+    private String note;
+
 
     //private List<String> ingredients;
 
