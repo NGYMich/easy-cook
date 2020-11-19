@@ -34,6 +34,9 @@ public class Recette {
     private String temps_cuisson;
 
     @Column
+    private String temps_total;
+
+    @Column
     private String note;
 
     @Column
