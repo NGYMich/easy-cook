@@ -28,10 +28,10 @@ public class Recette {
     private String lien_video;
 
     @Column
-    private int temps_preparation;
+    private String temps_preparation;
 
     @Column
-    private int temps_cuisson;
+    private String temps_cuisson;
 
     @Column
     private String note;

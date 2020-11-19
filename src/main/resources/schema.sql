@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS  RECETTE (
     description VARCHAR(3000),
     lien_image VARCHAR(500),
     lien_video VARCHAR(500),
-    temps_preparation INT,
-    temps_cuisson INT,
+    temps_preparation VARCHAR(500),
+    temps_cuisson VARCHAR(500),
     note VARCHAR(50)
 );
