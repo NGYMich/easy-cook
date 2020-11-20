@@ -3,14 +3,19 @@ package com.easycook.recettes.recette;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class RecetteService {
 
-    private IRecetteRepository recetteRepository;
+    private final IRecetteRepository recetteRepository;
 
     public RecetteService(IRecetteRepository recetteRepository) {
         this.recetteRepository = recetteRepository;
+    }
+
+    public Recette findByRecetteId(Long recetteId) {
+        return recetteRepository.findByRecetteId(recetteId);
     }
 
     public List<Recette> getRecettes() {
@@ -21,4 +26,7 @@ public class RecetteService {
         return recetteRepository.save(recette);
     }
 
+/*    public void deleteRecetteByIdOrName(Optional<Long> recetteId, Optional<String> name) {
+        recetteRepository.deleteRecetteByIdOrName(recetteId, name);
+    }*/
 }

@@ -2,7 +2,8 @@ DROP TABLE IF EXISTS RECETTE;
 
 CREATE TABLE IF NOT EXISTS RECETTE (
     recette_id INT AUTO_INCREMENT PRIMARY KEY,
-    categorie VARCHAR(3000),
+    categorie VARCHAR(150),
+    auteur VARCHAR(100),
     nom VARCHAR(250),
     description VARCHAR(3000),
     lien_image VARCHAR(500),

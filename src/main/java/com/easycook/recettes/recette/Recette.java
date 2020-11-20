@@ -12,35 +12,38 @@ import java.util.*;
 public class Recette {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private Long recette_id;
+    @Column(name = "recette_id")
+    private Long recetteId;
 
-    @Column
+    @Column(name = "categorie")
+    private String categorie;
+
+    @Column(name = "auteur")
+    private String auteur;
+
+    @Column(name = "nom")
     private String nom;
 
-    @Column
+    @Column(name = "description")
     private String description;
 
-    @Column
+    @Column(name = "lien_image")
     private String lien_image;
 
-    @Column
+    @Column(name = "lien_video")
     private String lien_video;
 
-    @Column
+    @Column(name = "temps_preparation")
     private String temps_preparation;
 
-    @Column
+    @Column(name = "temps_cuisson")
     private String temps_cuisson;
 
-    @Column
+    @Column(name = "temps_total")
     private String temps_total;
 
-    @Column
+    @Column(name = "note")
     private String note;
-
-    @Column
-    private String categorie;
 
     @OneToMany(mappedBy="recette", targetEntity = Ingredient.class)
     private List<Ingredient> liste_ingredients = new ArrayList<Ingredient>();
@@ -49,15 +52,5 @@ public class Recette {
     @CollectionTable(name = "etape", joinColumns = @JoinColumn(name = "recette_id"))
     @Column(name="etape")
     private List<String> liste_etapes = new ArrayList<String>();
-/*    @ElementCollection
-    @CollectionTable(name = "recette_item_maping",
-            joinColumns = {@JoinColumn(name = "recette_id", referencedColumnName = "id")})
-    @MapKeyColumn(name = "ingredient")
-    @Column(name = "quantite_ingredient")
-    private Map<String, String> ingredients = new HashMap<>();*/
-
-
-    //private List<String> ingredients;
-
 
 }
