@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,11 +47,12 @@ public class RecetteRestController {
         return ResponseEntity.ok(resource);
     }
 
-/*    @DeleteMapping(path = "/recette/{recetteId}")
+    @Transactional
+    @DeleteMapping(path = "/recette/{recetteId}")
     public ResponseEntity<Long> deleteRecette(@PathVariable Optional<Long> recetteId, @PathVariable Optional<String> name) {
-        recetteService.deleteRecetteByIdOrName(recetteId, name);
+        recetteService.deleteRecetteByRecetteIdOrNom(recetteId, name);
         return new ResponseEntity<>(HttpStatus.OK);
-    }*/
+    }
 
 
 }

@@ -10,5 +10,5 @@ public interface IRecetteRepository extends JpaRepository<Recette, Long> {
 
     Recette findByRecetteId(Long recetteId);
 
-    //void deleteRecetteByIdOrName(Optional<Long> recetteId, Optional<String> name);
+    void deleteRecetteByRecetteIdOrNom(Optional<Long> recetteId, Optional<String> nom);
 }

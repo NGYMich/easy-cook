@@ -26,7 +26,7 @@ public class RecetteService {
         return recetteRepository.save(recette);
     }
 
-/*    public void deleteRecetteByIdOrName(Optional<Long> recetteId, Optional<String> name) {
-        recetteRepository.deleteRecetteByIdOrName(recetteId, name);
-    }*/
+    public void deleteRecetteByRecetteIdOrNom(Optional<Long> recetteId, Optional<String> name) {
+        recetteRepository.deleteRecetteByRecetteIdOrNom(recetteId, name);
+    }
 }
