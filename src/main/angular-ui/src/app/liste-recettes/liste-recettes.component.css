@@ -1,0 +1,88 @@
+.mat-column-categorie {
+  flex: none;
+  width: 10%;
+}
+
+.mat-subheader {
+  font-size: 20px;
+}
+
+.mat-list-item {
+  font-size: 18px;
+  padding-right: 10px;
+
+}
+
+
+
+.mat-column-nom {
+  flex: none;
+  width: 70%;
+}
+
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  padding: 10px;
+  font-size: 16px;
+  width: 25%;
+}
+
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  /*border: 1px solid black;*/
+  height: auto;
+}
+
+
+.ingredients-div {
+  padding: 0px 16px 16px 16px;
+  min-width: 100px;
+  max-width: 800px;
+}
+
+.etapes-div {
+  padding: 0px 16px 16px 16px;
+  min-width: 0px;
+  max-width: 800px;
+}
+
+.ingredients-list {
+  text-align: justify;
+}
+
+.etapes-list {
+  margin: 0 0 30px 0;
+  text-align: justify;
+}
+
+.center-cropped {
+  height: 800px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}

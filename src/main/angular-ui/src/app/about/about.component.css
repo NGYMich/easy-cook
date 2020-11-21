@@ -1,0 +1,15 @@
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://i.imgur.com/dY3wBLY.jpg');
+  background-size: cover;
+}
+
+.main-div{
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
