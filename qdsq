@@ -1,0 +1,65 @@
+[33mcommit c0fa3818bab7e9fdb58e699d8cc3284ae3064ce4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Sat Nov 21 01:11:49 2020 +0100
+
+    recette added buttons and some forms for adding and modifying recipes
+
+[33mcommit 966aa902a20944f6f26fdfa1980f0b3d51d7d75a[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Fri Nov 20 16:38:25 2020 +0100
+
+    recette by id
+
+[33mcommit da1125bdffbc85abdd53f2e7811dab611afc8568[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Thu Nov 19 23:52:01 2020 +0100
+
+    added ingredients and etapes
+
+[33mcommit 49d5899b1cdc3804fba27a37cba82f0a5172b02a[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Thu Nov 19 19:24:23 2020 +0100
+
+    working ingredient!!!
+
+[33mcommit b4670a2b90a7f9ec6ebbc42afcddffa1da571c66[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Thu Nov 19 14:58:41 2020 +0100
+
+    added times converter and total time
+
+[33mcommit 8418d6d1f1eb9aa9e5b3079b5e6dd83a969533cf[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Thu Nov 19 13:11:41 2020 +0100
+
+    add categories
+
+[33mcommit ddad46e3cde4c1e7918d5ef0d01addbe5b078f31[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Thu Nov 19 13:05:33 2020 +0100
+
+    add photo library
+
+[33mcommit a31732f78a3483b24ac521e7a8eeb258a8538efd[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Thu Nov 19 01:11:41 2020 +0100
+
+    added images per recipe and other functionalities and pages
+
+[33mcommit e6df19373823659b0160065f61c43762755eb6bb[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Wed Nov 18 23:42:49 2020 +0100
+
+    added filter and expandable table
+
+[33mcommit 534750cf151573fac2a0e2c8a9dd5ac2ddeebbc7[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Wed Nov 18 17:41:09 2020 +0100
+
+    functional back-end
+
+[33mcommit 13110c4f6f284ae06f05de30c096bf3dcbf24b1e[m
+Author: NGYMich <ngmich95@gmail.com>
+Date:   Wed Nov 18 15:02:19 2020 +0100
+
+    Premier commit
