@@ -19,10 +19,10 @@ export class AjoutModificationRecettePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.ingredientForm = this.formBuilder.group({
-      ingredients: this.formBuilder.array([this.formBuilder.group({nom:'', quantite: ''})])
+      ingredients: this.formBuilder.array([])
     })
     this.etapeForm = this.formBuilder.group({
-      etapes: this.formBuilder2.array([this.formBuilder2.group({nom_etape:''})])
+      etapes: this.formBuilder2.array([])
     })
   }
 
@@ -36,6 +36,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
 
   addIngredient() {
     this.ingredients.push(this.formBuilder.group({nom:'', quantite: ''}));
+    console.log(this.ingredients.value[0].nom);
   }
 
   addEtape() {
@@ -67,4 +68,8 @@ export class AjoutModificationRecettePageComponent implements OnInit {
     this.deleteRecipeFormIsShown = !this.deleteRecipeFormIsShown;
   }
 
+  addRecette () {
+    console.log(this.ingredients.value[0].nom)
+  }
 }
+

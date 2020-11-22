@@ -87,6 +87,11 @@
   color: black;
 }
 
+.mat-raised-button.mat-add-recette {
+  background-color: darkgreen;
+  color: white;
+}
+
 .mat-raised-button.mat-suppression-ingredient-etape
 {
   background-color: darkgrey;
@@ -107,4 +112,8 @@
   width: 400px;
   margin-right: 40px;
   display: inline-block;
+}
+
+.add-recette-button {
+
 }
