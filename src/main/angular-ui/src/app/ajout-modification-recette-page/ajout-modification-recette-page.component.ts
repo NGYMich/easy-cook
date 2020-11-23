@@ -13,17 +13,19 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   addRecipeFormIsShown = true;
   modifyRecipeFormIsShown = false;
   deleteRecipeFormIsShown = false;
+
   informationsForm: FormGroup;
   ingredientForm: FormGroup;
   etapeForm: FormGroup;
   selectedCategory;
+
   categories = ['Entrée', 'Plat', 'Dessert', 'Autres'];
 
   constructor(private formBuilder: FormBuilder, private recetteService: RecetteService) {  }
 
   ngOnInit(): void {
     this.ingredientForm = this.formBuilder.group({
-      ingredients: this.formBuilder.array([])
+      ingredients: this.formBuilder.array([this.formBuilder.group({nom: '1er ingre', quantite: '100 g'}), this.formBuilder.group({nom: '2e ingre', quantite: '150ml'})])
     })
     this.etapeForm = this.formBuilder.group({
       etapes: this.formBuilder.array([])
@@ -59,7 +61,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   }
 
   addEtape() {
-    this.etapes.push(this.formBuilder.group({nom: ''}));
+    this.etapes.push(this.formBuilder.group({nom_etape: ''}));
   }
 
   deleteIngredient(index) {
@@ -90,8 +92,9 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   }
 
   addRecette() {
-    // console.log(this.ingredients.value[0].nom);
-    console.log(this.informationsForm.get('nom').value);
+    var etapesArray = this.etapes.value.map(a => a.nom_etape);
+    var ingredientsArray = null;
+    console.log(this.ingredients.value);
 
     const recette: Recette = {
       recetteId: null,
@@ -104,10 +107,11 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       temps_preparation: this.informationsForm.get('temps_preparation').value,
       temps_cuisson: this.informationsForm.get('temps_cuisson').value,
       temps_total: null,
-      note: this.informationsForm.get('note').value
+      note: this.informationsForm.get('note').value,
+      liste_ingredients: this.ingredients.value,
+      liste_etapes: etapesArray
     };
     this.recetteService.addRecette(recette);
-    console.log(recette);
   }
 }
 

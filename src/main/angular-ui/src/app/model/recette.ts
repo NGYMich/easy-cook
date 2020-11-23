@@ -10,4 +10,7 @@ export class Recette {
   temps_cuisson: string;
   temps_total: string;
   note: string;
+  liste_ingredients: [];
+  liste_etapes: [];
+
 }
