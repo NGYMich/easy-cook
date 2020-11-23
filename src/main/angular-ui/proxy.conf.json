@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://easy-cook-back.herokuapp.com",
+    "target": "http://easy-cook-back.herokuapp.com",
     "secure": false
   }
 }
