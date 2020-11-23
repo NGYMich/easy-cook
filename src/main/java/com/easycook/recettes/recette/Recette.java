@@ -45,7 +45,7 @@ public class Recette {
     @Column(name = "note")
     private String note;
 
-    @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL)
     private List<Ingredient> liste_ingredients = new ArrayList<Ingredient>();
 
     @ElementCollection

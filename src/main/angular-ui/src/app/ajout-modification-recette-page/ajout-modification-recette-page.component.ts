@@ -94,7 +94,8 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   addRecette() {
     var etapesArray = this.etapes.value.map(a => a.nom_etape);
     var ingredientsArray = null;
-    console.log(this.ingredients.value);
+    //console.log(this.ingredients.value);
+
 
     const recette: Recette = {
       recetteId: null,
@@ -111,6 +112,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       liste_ingredients: this.ingredients.value,
       liste_etapes: etapesArray
     };
+    console.log(recette);
     this.recetteService.addRecette(recette);
   }
 }
