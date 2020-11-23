@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormArray, Form, FormControl} from '@angular/forms';
 import {Recette} from "../model/recette";
 import {RecetteService} from "../services/RecetteService";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-ajout-modification-recette-page',
@@ -18,9 +19,10 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   ingredientForm: FormGroup;
   etapeForm: FormGroup;
   selectedCategory;
+  selectedRecetteToDelete;
 
   categories = ['Entrée', 'Plat', 'Dessert', 'Autres'];
-
+  listeRecettes;
   constructor(private formBuilder: FormBuilder, private recetteService: RecetteService) {  }
 
   ngOnInit(): void {
@@ -41,6 +43,17 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       temps_cuisson : new FormControl(''),
       note: new FormControl(''),
     })
+    this.recetteService.getRecettes().subscribe(data => {
+      this.listeRecettes = data;
+      console.log(this.listeRecettes);
+      this.listeRecettes.forEach(recette => {
+        recette.temps_total = this.minToHours(Number(recette.temps_preparation) + Number(recette.temps_cuisson));
+        recette.temps_cuisson = this.minToHours(Number(recette.temps_cuisson));
+        recette.temps_preparation = this.minToHours(Number(recette.temps_preparation));
+      })
+    })
+
+
   }
 
   get informations() {
@@ -94,8 +107,6 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   addRecette() {
     var etapesArray = this.etapes.value.map(a => a.nom_etape);
     var ingredientsArray = null;
-    //console.log(this.ingredients.value);
-
 
     const recette: Recette = {
       recetteId: null,
@@ -112,8 +123,30 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       liste_ingredients: this.ingredients.value,
       liste_etapes: etapesArray
     };
-    console.log(recette);
     this.recetteService.addRecette(recette);
+  }
+
+  changeRecetteAffichee(nomRecette) {
+    //console.log(nomRecette);
+
+  }
+  deleteRecette(nomRecette) {
+    console.log(this.selectedRecetteToDelete)
+    this.recetteService.deleteRecette(this.selectedRecetteToDelete);
+  }
+
+
+
+  minToHours(minutes: number) {
+    var newMinutes, newHours, newTime;
+    if (minutes < 60) {
+      return minutes + "min";
+    } else {
+      newHours = Math.trunc(minutes/60);
+      newMinutes = minutes - newHours * 60;
+    }
+    return newMinutes != 0 ? newHours + 'h' + newMinutes : newHours + 'h' + newMinutes + '0';
+
   }
 }
 

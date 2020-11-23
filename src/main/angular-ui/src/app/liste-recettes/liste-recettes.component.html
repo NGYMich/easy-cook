@@ -63,20 +63,11 @@
         <div class="ingredients-div">
           <mat-list>
             <div mat-subheader>Ingrédients</div>
-
-
-
-<!--            <mat-list-item *ngFor="let ingredient of element.liste_ingredients; let i = index" class="ingredients-list">
-              - {{ingredient.quantite}} {{ingredient.nom}}
-            </mat-list-item>-->
             <mat-selection-list >
               <mat-list-option checkboxPosition="before" *ngFor="let ingredient of element.liste_ingredients; let i = index" class="ingredients-list">
                 {{ingredient.quantite}} {{ingredient.nom}}
               </mat-list-option>
             </mat-selection-list>
-
-
-
           </mat-list>
         </div>
 

@@ -2,9 +2,21 @@
   padding: 16px;
 }
 
+.delete-recipe-form {
+  width: 100%;
+  margin: 5px auto;
+  text-align: center;
+}
+
 .button-div {
   width: 40%;
   margin: 0 auto;
+}
+
+.liste-recettes-form-field {
+  margin-left: 630px;
+  width: 20%;
+  float: left;
 }
 
 .mat-form-field {
@@ -18,6 +30,7 @@
 .categorie-form-field {
   width: 30%;
 }
+
 
 .add-recipe-informations {
   margin-left: 0px;
@@ -54,11 +67,10 @@
 }
 
 .quantite-ingredient-form-field {
-  width:100px;
+  width: 100px;
   margin-left: 50px;
   margin-right: 40px;
 }
-
 
 
 /* buttons */
@@ -92,11 +104,11 @@
   color: white;
 }
 
-.mat-raised-button.mat-suppression-ingredient-etape
-{
+.mat-raised-button.mat-suppression-ingredient-etape {
   background-color: darkgrey;
   color: white;
 }
+
 .recipe-button {
   margin: 16px;
   padding: 5px 16px 5px 16px;
@@ -116,4 +128,60 @@
 
 .add-recette-button {
 
+}
+
+.center-cropped {
+  height: 800px;
+  height: 800px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  border: solid;
+  margin-right: 10px;
+}
+
+.information-delete-div {
+  padding: 0px 16px 16px 16px;
+  min-width: 100px;
+  max-width: 1500px;
+  text-align: left;
+  /*border: 1px solid black;*/
+}
+
+.suppression-recette-button {
+  margin-left: 40px;
+  float: left;
+}
+
+.recette-to-delete-infos {
+  display: flex;
+  margin: 50px 0px 0px 0px;
+}
+
+
+.ingredients-div {
+  padding: 0px 16px 16px 16px;
+  min-width: 300px;
+  max-width: 500px;
+  float:left;
+  display: inline-block;
+}
+
+.etapes-div {
+  min-width: 0px;
+  max-width: 800px;
+  float:left;
+}
+
+.ingredients-list {
+  margin: 0 0 0 0;
+  text-align: justify;
+}
+mat-divider {
+   width: 100%;
+ }
+
+.etapes-list {
+  margin: 0 0 10px 0;
+  text-align: justify;
 }

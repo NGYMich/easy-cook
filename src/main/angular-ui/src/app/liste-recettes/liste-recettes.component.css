@@ -63,13 +63,15 @@ tr.example-element-row:not(.example-expanded-row):active {
 .ingredients-div {
   padding: 0px 16px 16px 16px;
   min-width: 100px;
-  max-width: 800px;
+  max-width: 400px;
+  float: left;
 }
 
 .etapes-div {
   padding: 0px 16px 16px 16px;
   min-width: 0px;
   max-width: 800px;
+  float: left;
 }
 
 .ingredients-list {
@@ -85,4 +87,6 @@ tr.example-element-row:not(.example-expanded-row):active {
   height: 800px;
   background-position: center center;
   background-repeat: no-repeat;
+  border: 2px solid;
+  max-width: 600px;
 }

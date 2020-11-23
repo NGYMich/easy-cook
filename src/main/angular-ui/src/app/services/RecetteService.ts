@@ -35,4 +35,10 @@ export class RecetteService {
     );
   }
 
+  deleteRecette(recette: Recette) {
+    return this.http.delete(this.rootURL + '/recette/' + recette.recetteId).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 }
