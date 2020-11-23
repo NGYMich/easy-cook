@@ -2,7 +2,7 @@
   <button (click)="showAddRecetteDiv()" class="recipe-button" color="ajout" mat-raised-button>
     Ajouter une nouvelle recette
   </button>
-  <button (click)="showModifyRecetteDiv()" class="recipe-button" color="modification" mat-raised-button>
+  <button (click)="showModifyRecetteDiv()" class="recipe-button" color="modification" mat-raised-button *ngIf="false">
     Modifier une recette
   </button>
   <button (click)="showDeleteRecetteDiv()" class="recipe-button" color="suppression" mat-raised-button>
@@ -55,12 +55,12 @@
       </mat-form-field>
       <br>
       <mat-form-field appearance="legacy">
-        <mat-label>Temps de préparation</mat-label>
+        <mat-label>Temps de préparation (en minutes)</mat-label>
         <input formControlName="temps_preparation" matInput>
       </mat-form-field>
       <br>
       <mat-form-field appearance="legacy">
-        <mat-label>Temps de cuisson</mat-label>
+        <mat-label>Temps de cuisson (en minutes)</mat-label>
         <input formControlName="temps_cuisson" matInput>
       </mat-form-field>
       <br>

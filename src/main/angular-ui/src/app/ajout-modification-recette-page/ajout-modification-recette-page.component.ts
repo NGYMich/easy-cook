@@ -27,7 +27,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.ingredientForm = this.formBuilder.group({
-      ingredients: this.formBuilder.array([this.formBuilder.group({nom: '1er ingre', quantite: '100 g'}), this.formBuilder.group({nom: '2e ingre', quantite: '150ml'})])
+      ingredients: this.formBuilder.array([])
     })
     this.etapeForm = this.formBuilder.group({
       etapes: this.formBuilder.array([])
