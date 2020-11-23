@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
+    "start":"http-server-spa dist/angular-ui index.html $PORT",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "^0.1100.2",
     "@angular/animations": "~11.0.0",
     "@angular/cdk": "^11.0.0",
     "@angular/cli": "^11.0.2",
@@ -32,7 +34,6 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1100.1",
     "@angular/compiler-cli": "^11.0.2",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",

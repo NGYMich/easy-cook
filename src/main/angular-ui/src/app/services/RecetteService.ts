@@ -18,10 +18,12 @@ export class RecetteService {
   constructor(private http: HttpClient) {
   }
 
-  rootURL = '/api';
+  rootURL = 'https://easy-cook-back.herokuapp.com/';
+
 
   getRecettes() {
-    return this.http.get(this.rootURL + '/recettes');
+    console.log(this.rootURL + 'api/recettes');
+    return this.http.get(this.rootURL + 'api/recettes');
   }
 
   addRecette(recette: Recette) {
