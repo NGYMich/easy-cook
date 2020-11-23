@@ -5,4 +5,4 @@ FROM openjdk:8-jre-alpine
 COPY recettes-0.0.1-SNAPSHOT.jar /recettes.war
 
 # run the app
-CMD ["/usr/bin/java", "-jar", "-Dspring.profiles.active=default", "/recettes.war"]
+CMD ["/usr/bin/java", "-jar", "-Dspring.profiles.active=production", "/recettes.war"]
