@@ -15,61 +15,66 @@
     <h1>
       Informations
     </h1>
-    <mat-form-field appearance="legacy">
-      <mat-label>Nom de la recette</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="legacy">
-      <mat-label>Auteur</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
+
+    <form [formGroup]="informationsForm">
+        <mat-form-field appearance="legacy">
+          <mat-label>Nom de la recette</mat-label>
+          <input formControlName="nom" matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Auteur</mat-label>
+          <input formControlName="auteur" matInput>
+        </mat-form-field>
+        <br>
 
 
-    <mat-form-field appearance="legacy" class="categorie-form-field">
-      <mat-label>Catégorie</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let categorie of categories" value="option">{{categorie}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
+        <mat-form-field appearance="legacy" class="categorie-form-field" >
+          <mat-label>Catégorie</mat-label>
+          <mat-select formControlName="categorie" [(value)]="selectedCategory">
+            <mat-option *ngFor="let categorie of categories" [value]="categorie" >{{categorie}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
 
 
-    <mat-form-field appearance="legacy">
-      <mat-label>Description de la recette</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="legacy">
-      <mat-label>Lien image</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Description de la recette</mat-label>
+          <textarea formControlName="description" matInput ></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Lien image</mat-label>
+          <input formControlName="lien_image" matInput>
+        </mat-form-field>
+        <br>
 
-    <mat-form-field appearance="legacy">
-      <mat-label>Lien vidéo</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="legacy">
-      <mat-label>Temps de préparation</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="legacy">
-      <mat-label>Temps de cuisson</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Lien vidéo</mat-label>
+          <input formControlName="lien_video" matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Temps de préparation</mat-label>
+          <input formControlName="temps_preparation" matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Temps de cuisson</mat-label>
+          <input formControlName="temps_cuisson" matInput>
+        </mat-form-field>
+        <br>
 
-    <mat-form-field appearance="legacy">
-      <mat-label>Note (sur 10)</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
-    <button (click)="addRecette()" class="add-recette-button" mat-raised-button type="button" color="add-recette">Enregistrer la recette
-    </button>
+        <mat-form-field appearance="legacy">
+          <mat-label>Note (sur 10)</mat-label>
+          <input formControlName="note" matInput>
+        </mat-form-field>
+        <br>
+        <button (click)="addRecette()" class="add-recette-button" mat-raised-button type="button" color="add-recette">Enregistrer la recette
+        </button>
+
+    </form>
+
 
   </div>
   <div class="add-recipe-ingredients">
