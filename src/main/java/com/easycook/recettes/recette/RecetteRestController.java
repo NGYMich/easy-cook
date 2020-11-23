@@ -24,7 +24,6 @@ public class RecetteRestController {
     @Autowired
     IngredientService ingredientService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/recettes")
     public ResponseEntity<?> listRecettes() {
         log.info("RecetteController: liste recettes");
@@ -32,7 +31,6 @@ public class RecetteRestController {
         return ResponseEntity.ok(listeRecettes);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/recette/{recette_id}")
     public ResponseEntity<?> recetteById(@PathVariable("recette_id") Long recetteId) {
         log.info("RecetteController: recette by id : " + recetteId);
@@ -41,7 +39,6 @@ public class RecetteRestController {
         return ResponseEntity.ok(recette);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(path = "/recette")
     public ResponseEntity<?> saveRecette(@RequestBody Recette recette) {
         log.info("RecetteController: liste recettes");
@@ -76,14 +73,12 @@ public class RecetteRestController {
 
         return ResponseEntity.ok(resource);
     }
-    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping(path = "/recette")
     public ResponseEntity<?> updateRecette(@RequestBody Recette recette) {
         log.info("RecetteController: liste recettes");
         Recette resource = recetteService.saveRecette(recette);
         return ResponseEntity.ok(resource);
     }
-    @CrossOrigin(origins = "http://localhost:4200")
     @Transactional
     @DeleteMapping(path = "/recette/{recetteId}")
     public ResponseEntity<Long> deleteRecette(@PathVariable Optional<Long> recetteId, @PathVariable Optional<String> name) {

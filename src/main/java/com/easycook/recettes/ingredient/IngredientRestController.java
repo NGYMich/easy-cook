@@ -15,14 +15,12 @@ public class IngredientRestController {
     @Autowired
     IngredientService ingredientService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(path = "/ingredients")
     public ResponseEntity<?> listIngredients() {
         log.info("IngredientController: liste ingredients");
         List<Ingredient> resource = ingredientService.getIngredients();
         return ResponseEntity.ok(resource);
     }
-    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(path = "/ingredients")
     public ResponseEntity<?> saveIngredient(@RequestBody Ingredient ingredient) {
         log.info("IngredientController: liste ingredients");
