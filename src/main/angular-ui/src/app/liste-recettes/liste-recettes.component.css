@@ -90,3 +90,8 @@ tr.example-element-row:not(.example-expanded-row):active {
   border: 2px solid;
   max-width: 600px;
 }
+
+.mat-progress-spinner {
+  margin: 200px auto;
+  mode: indeterminate;
+}

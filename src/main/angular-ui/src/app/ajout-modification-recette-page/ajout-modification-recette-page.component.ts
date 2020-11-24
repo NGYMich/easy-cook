@@ -14,10 +14,13 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   addRecipeFormIsShown = true;
   modifyRecipeFormIsShown = false;
   deleteRecipeFormIsShown = false;
+  isRecetteEnregistree = false;
+  isRecetteSupprimee = false;
 
   informationsForm: FormGroup;
   ingredientForm: FormGroup;
   etapeForm: FormGroup;
+
   selectedCategory;
   selectedRecetteToDelete;
 
@@ -124,6 +127,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       liste_etapes: etapesArray
     };
     this.recetteService.addRecette(recette);
+    this.isRecetteEnregistree = true;
   }
 
   changeRecetteAffichee(nomRecette) {

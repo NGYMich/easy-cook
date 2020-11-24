@@ -26,6 +26,7 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {MatDividerModule} from "@angular/material/divider";
     MatGridListModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

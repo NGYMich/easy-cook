@@ -6,7 +6,6 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatSort} from "@angular/material/sort";
 import {any} from "codelyzer/util/function";
 
-
 @Component({
   selector: 'app-liste-recettes',
   templateUrl: './liste-recettes.component.html',
@@ -24,6 +23,7 @@ export class ListeRecettesComponent implements OnInit {
   newData;
   dataSource;
   expandedElement: Recette | null;
+  hasDataLoaded = false;
 
   constructor(private recetteService: RecetteService) { }
   @ViewChild(MatSort) sort: MatSort;
@@ -39,6 +39,7 @@ export class ListeRecettesComponent implements OnInit {
         recette.temps_preparation = this.minToHours(Number(recette.temps_preparation));
       })
       this.dataSource = new MatTableDataSource(this.newData);
+      this.hasDataLoaded = true;
       //this.dataSource.sort = this.sort;
     })
   }

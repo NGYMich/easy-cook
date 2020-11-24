@@ -1,106 +1,99 @@
-<mat-form-field>
-  <mat-label>ex: Tomates</mat-label>
-  <input #input (keyup)="applyFilter($event)" matInput>
-</mat-form-field>
+<mat-spinner *ngIf="!hasDataLoaded;"></mat-spinner>
+<div>
+  <mat-form-field>
+    <mat-label>ex: Tomates</mat-label>
+    <input #input (keyup)="applyFilter($event)" matInput>
+  </mat-form-field>
 
 
-<table [dataSource]="dataSource"
-       class="mat-elevation-z8" mat-table
-       matSort
-       multiTemplateDataRows>
+  <table [dataSource]="dataSource"
+         class="mat-elevation-z8" mat-table
+         matSort
+         multiTemplateDataRows>
 
-  <!-- Catégorie Column -->
-  <ng-container matColumnDef="categorie">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header>Catégorie</th>
-    <td *matCellDef="let element" mat-cell> {{element.categorie}} </td>
-  </ng-container>
+    <!-- Catégorie Column -->
+    <ng-container matColumnDef="categorie">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Catégorie</th>
+      <td *matCellDef="let element" mat-cell> {{element.categorie}} </td>
+    </ng-container>
 
-  <!-- Auteur Column -->
-  <ng-container matColumnDef="auteur">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header>Auteur</th>
-    <td *matCellDef="let element" mat-cell> {{element.auteur}} </td>
-  </ng-container>
+    <!-- Auteur Column -->
+    <ng-container matColumnDef="auteur">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Auteur</th>
+      <td *matCellDef="let element" mat-cell> {{element.auteur}} </td>
+    </ng-container>
 
-  <!-- Plat Column -->
-  <ng-container matColumnDef="nom">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header>Plat</th>
-    <td *matCellDef="let element" mat-cell> {{element.nom}} </td>
-  </ng-container>
+    <!-- Plat Column -->
+    <ng-container matColumnDef="nom">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Plat</th>
+      <td *matCellDef="let element" mat-cell> {{element.nom}} </td>
+    </ng-container>
 
-  <!-- Preparation time Column -->
-  <ng-container matColumnDef="temps_preparation">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header>Temps de préparation</th>
-    <td *matCellDef="let element" mat-cell> {{element.temps_preparation}} </td>
-  </ng-container>
+    <!-- Preparation time Column -->
+    <ng-container matColumnDef="temps_preparation">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Temps de préparation</th>
+      <td *matCellDef="let element" mat-cell> {{element.temps_preparation}} </td>
+    </ng-container>
 
-  <!-- Cooking time Column -->
-  <ng-container matColumnDef="temps_cuisson">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header>Temps de cuisson</th>
-    <td *matCellDef="let element" mat-cell> {{element.temps_cuisson}} </td>
-  </ng-container>
+    <!-- Cooking time Column -->
+    <ng-container matColumnDef="temps_cuisson">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Temps de cuisson</th>
+      <td *matCellDef="let element" mat-cell> {{element.temps_cuisson}} </td>
+    </ng-container>
 
-  <!-- Total time Column -->
-  <ng-container matColumnDef="temps_total">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header>Temps total</th>
-    <td *matCellDef="let element" mat-cell> {{element.temps_total}} </td>
-  </ng-container>
+    <!-- Total time Column -->
+    <ng-container matColumnDef="temps_total">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Temps total</th>
+      <td *matCellDef="let element" mat-cell> {{element.temps_total}} </td>
+    </ng-container>
 
-  <!-- Note Column -->
-  <ng-container matColumnDef="note">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header>Note (sur 10)</th>
-    <td *matCellDef="let element" mat-cell> {{element.note}} </td>
-  </ng-container>
+    <!-- Note Column -->
+    <ng-container matColumnDef="note">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Note (sur 10)</th>
+      <td *matCellDef="let element" mat-cell> {{element.note}} </td>
+    </ng-container>
 
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-  <ng-container matColumnDef="expandedDetail">
-    <td *matCellDef="let element" [attr.colspan]="displayedColumns.length" mat-cell>
-      <div [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
-           class="example-element-detail">
-        <div class="example-element-diagram">
-          <img class="center-cropped" src={{element.lien_image}}>
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td *matCellDef="let element" [attr.colspan]="displayedColumns.length" mat-cell>
+        <div [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
+             class="example-element-detail">
+          <div class="example-element-diagram">
+            <img class="center-cropped" src={{element.lien_image}}>
+          </div>
+
+          <div class="ingredients-div">
+            <mat-list>
+              <div mat-subheader>Ingrédients</div>
+              <mat-selection-list >
+                <mat-list-option checkboxPosition="before" *ngFor="let ingredient of element.liste_ingredients; let i = index" class="ingredients-list">
+                  {{ingredient.quantite}} {{ingredient.nom}}
+                </mat-list-option>
+              </mat-selection-list>
+            </mat-list>
+          </div>
+          <mat-divider [vertical]="true"></mat-divider>
+          <div class="etapes-div">
+            <mat-list>
+              <div mat-subheader>Étapes</div>
+              <mat-list-item *ngFor="let etape of element.liste_etapes; let i = index;" class="etapes-list">
+                {{i + 1}}. {{etape}}
+              </mat-list-item>
+            </mat-list>
+          </div>
+
         </div>
+      </td>
+    </ng-container>
 
-        <div class="ingredients-div">
-          <mat-list>
-            <div mat-subheader>Ingrédients</div>
-            <mat-selection-list >
-              <mat-list-option checkboxPosition="before" *ngFor="let ingredient of element.liste_ingredients; let i = index" class="ingredients-list">
-                {{ingredient.quantite}} {{ingredient.nom}}
-              </mat-list-option>
-            </mat-selection-list>
-          </mat-list>
-        </div>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr (click)="expandedElement = expandedElement === element ? null : element"
+        *matRowDef="let element; columns: displayedColumns;"
+        [class.example-expanded-row]="expandedElement === element"
+        class="example-element-row"
+        mat-row>
+    </tr>
+    <tr *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row" mat-row></tr>
+  </table>
 
-
-        <mat-divider [vertical]="true"></mat-divider>
-
-
-        <div class="etapes-div">
-          <mat-list>
-            <div mat-subheader>Étapes</div>
-            <mat-list-item *ngFor="let etape of element.liste_etapes; let i = index;" class="etapes-list">
-              {{i + 1}}. {{etape}}
-            </mat-list-item>
-          </mat-list>
-        </div>
-
-
-
-
-
-
-
-
-      </div>
-    </td>
-  </ng-container>
-
-  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-  <tr (click)="expandedElement = expandedElement === element ? null : element"
-      *matRowDef="let element; columns: displayedColumns;"
-      [class.example-expanded-row]="expandedElement === element"
-      class="example-element-row"
-      mat-row>
-  </tr>
-  <tr *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row" mat-row></tr>
-</table>
+</div>

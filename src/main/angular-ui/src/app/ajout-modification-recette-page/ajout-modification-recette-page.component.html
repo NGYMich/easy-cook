@@ -73,6 +73,7 @@
       <button (click)="addRecette()" class="add-recette-button" color="add-recette" mat-raised-button type="button">
         Enregistrer la recette
       </button>
+      <h3 *ngIf="isRecetteEnregistree">Recette enregistrée ! Consultez la liste.</h3>
 
     </form>
 

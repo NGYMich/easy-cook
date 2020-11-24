@@ -15,6 +15,7 @@ export class LivreRecettesPageComponent implements OnInit {
   tabLienImages = [];
   tabNgxGalleryImages = [];
   dataSource;
+  hasDataLoaded = false;
 
   constructor(private recetteService: RecetteService) {
   }
@@ -32,6 +33,7 @@ export class LivreRecettesPageComponent implements OnInit {
         })
       }
       this.galleryImages = this.tabNgxGalleryImages;
+      this.hasDataLoaded = true;
     })
 
     //this.galleryImages = this.dataSource.lien_image;

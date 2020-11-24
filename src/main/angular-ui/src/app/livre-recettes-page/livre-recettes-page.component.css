@@ -3,3 +3,7 @@
   width: auto;
 
 }
+.mat-progress-spinner {
+  margin: 200px auto;
+  mode: indeterminate;
+}
