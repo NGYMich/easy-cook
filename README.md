@@ -1,23 +1,41 @@
-# easy-cook
-recettes
+# Easy-cook
 
-Heroku :
-/easy-cook/ : 
+###### Recettes de Mich
+<ul>
+<li>
+Front en Angular11
+</li>
+<li>
+Back en Java8</li>
+</ul> 
+
+### Git
+```
 git add .
-git commit -m "heroku JAVA commit"
+git commit -m "git project commit"
+git push origin master
+```
+
+
+
+### Heroku
+/easy-cook/ : 
+
+```
+git add .
+git commit -m "Heroku Java commit"
 git push heroku master
+```
+
 
 /easy-cook/src/main/angular-ui : 
 
-<ul> 
-<li>git add .
-</li>
-<li>git commit -m "heroku ANGULAR commit"
-</li>
+```
+git add .
+git commit -m "Heroku Angular commit"
+git push heroku master
+```
 
-<li>git push heroku master
-</li>
 
-</ul>
 
 
