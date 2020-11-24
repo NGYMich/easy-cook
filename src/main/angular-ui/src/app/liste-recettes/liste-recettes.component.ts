@@ -32,6 +32,7 @@ export class ListeRecettesComponent implements OnInit {
     this.recetteService.getRecettes().subscribe(data => {
       console.log(data);
       // @ts-ignore
+      this.hasDataLoaded = true;
       this.newData = data;
       this.newData.forEach(recette => {
         recette.temps_total = this.minToHours(Number(recette.temps_preparation) + Number(recette.temps_cuisson));
@@ -39,7 +40,6 @@ export class ListeRecettesComponent implements OnInit {
         recette.temps_preparation = this.minToHours(Number(recette.temps_preparation));
       })
       this.dataSource = new MatTableDataSource(this.newData);
-      this.hasDataLoaded = true;
       //this.dataSource.sort = this.sort;
     })
   }

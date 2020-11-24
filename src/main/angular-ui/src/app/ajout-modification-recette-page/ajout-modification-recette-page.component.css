@@ -137,12 +137,13 @@ h3 {
 
 .center-cropped {
   height: 800px;
-  height: 800px;
   background-position: center center;
   background-repeat: no-repeat;
   display: flex;
   border: solid;
   margin-right: 10px;
+  margin-left: 10%;
+  max-width: 40%;
 }
 
 .information-delete-div {
@@ -166,15 +167,15 @@ h3 {
 
 .ingredients-div {
   padding: 0px 16px 16px 16px;
-  min-width: 300px;
-  max-width: 500px;
+  min-width: 10%;
+  max-width: 40%;
   float:left;
   display: inline-block;
 }
 
 .etapes-div {
   min-width: 0px;
-  max-width: 800px;
+  max-width: 60%;
   float:left;
 }
 

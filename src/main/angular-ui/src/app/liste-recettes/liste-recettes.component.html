@@ -1,5 +1,5 @@
 <mat-spinner *ngIf="!hasDataLoaded;"></mat-spinner>
-<div>
+<div *ngIf="hasDataLoaded;">
   <mat-form-field>
     <mat-label>ex: Tomates</mat-label>
     <input #input (keyup)="applyFilter($event)" matInput>
@@ -58,7 +58,7 @@
       <td *matCellDef="let element" [attr.colspan]="displayedColumns.length" mat-cell>
         <div [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
              class="example-element-detail">
-          <div class="example-element-diagram">
+          <div class="image-div">
             <img class="center-cropped" src={{element.lien_image}}>
           </div>
 

@@ -53,8 +53,9 @@ tr.example-element-row:not(.example-expanded-row):active {
   display: flex;
 }
 
-.example-element-diagram {
-  min-width: 80px;
+.image-div {
+  min-width: 10%;
+  max-width: 600px;
   /*border: 1px solid black;*/
   height: auto;
 }
@@ -62,16 +63,18 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .ingredients-div {
   padding: 0px 16px 16px 16px;
+  /*
   min-width: 100px;
   max-width: 400px;
-  float: left;
+  */
+  min-width: 10%;
+  max-width: 40%;
 }
 
 .etapes-div {
   padding: 0px 16px 16px 16px;
-  min-width: 0px;
-  max-width: 800px;
-  float: left;
+  min-width: 0%;
+  max-width: 40%;
 }
 
 .ingredients-list {
@@ -88,7 +91,7 @@ tr.example-element-row:not(.example-expanded-row):active {
   background-position: center center;
   background-repeat: no-repeat;
   border: 2px solid;
-  max-width: 600px;
+  max-width: 100%;
 }
 
 .mat-progress-spinner {

@@ -1,5 +1,5 @@
 <mat-spinner *ngIf="!hasDataLoaded;"></mat-spinner>
 
-<div class="center-div">
+<div class="center-div" *ngIf="hasDataLoaded;">
   <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
 </div>
