@@ -72,7 +72,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .etapes-div {
-  padding: 0px 16px 16px 16px;
+  padding: 6px 16px 10px 16px;
   min-width: 0%;
   max-width: 40%;
 }
@@ -82,7 +82,8 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .etapes-list {
-  margin: 0 0 30px 0;
+  margin: 0 0 20px 0;
+  max-height: 50px;
   text-align: justify;
 }
 

@@ -189,5 +189,6 @@ mat-divider {
 
 .etapes-list {
   margin: 0 0 10px 0;
+  max-height: 50px;
   text-align: justify;
 }
