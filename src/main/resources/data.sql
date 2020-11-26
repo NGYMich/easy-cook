@@ -36,6 +36,7 @@ VALUES (1, 'blanquette de veau', '1 kg'),
        (1, 'Poivre', '')
 ;
 
+/*
 INSERT INTO ETAPE (recette_id, etape)
 VALUES (1, 'Saupoudrer de 2 cuillères de farine. Bien remuer.'),
        (1, 'Ajouter 2 ou 3 verres d''eau, les cubes de bouillon, le vin et remuer. Ajouter de l''eau si nécessaire pour couvrir.'),
@@ -44,3 +45,4 @@ VALUES (1, 'Saupoudrer de 2 cuillères de farine. Bien remuer.'),
        (1, 'Si nécessaire, ajouter de l''eau de temps en temps.'),
        (1, 'Dans un bol, bien mélanger la crème fraîche, le jaune d’oeuf et le jus de citron. Ajouter ce mélange au dernier moment, bien remuer et servir tout de suite.');
 
+*/
