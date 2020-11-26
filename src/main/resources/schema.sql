@@ -1,6 +1,3 @@
-
-/*
-
 CREATE TABLE IF NOT EXISTS RECETTE (
     recette_id SERIAL PRIMARY KEY,
     categorie VARCHAR(150),
@@ -31,9 +28,9 @@ CREATE TABLE IF NOT EXISTS ETAPE(
 )
 
 
-*/
 
 /*h2*/
+/*
 
 CREATE TABLE IF NOT EXISTS RECETTE (
     recette_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -63,3 +60,4 @@ CREATE TABLE IF NOT EXISTS ETAPE(
     etape VARCHAR(500),
     FOREIGN KEY (recette_id) references RECETTE(recette_id)
 )
+*/
