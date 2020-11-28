@@ -1,3 +1,4 @@
+/*
 INSERT INTO RECETTE (categorie, auteur, nom, description, lien_image, lien_video, temps_preparation, temps_cuisson, note)
 VALUES ('Plat', 'Mich', 'Blanquette de Veau', 'Une délicieuse blanquette accompagnée de champignons et de carottes.',
         'https://assets.afcdn.com/recipe/20190529/93189_w600.jpg',
@@ -35,6 +36,7 @@ VALUES (1, 'blanquette de veau', '1 kg'),
        (1, 'Sel', ''),
        (1, 'Poivre', '')
 ;
+*/
 
 /*
 INSERT INTO ETAPE (recette_id, etape)
