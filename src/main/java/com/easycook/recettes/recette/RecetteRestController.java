@@ -18,11 +18,13 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class RecetteRestController {
 
-    @Autowired
-    RecetteService recetteService;
+    private final RecetteService recetteService;
+    private final IngredientService ingredientService;
 
-    @Autowired
-    IngredientService ingredientService;
+    public RecetteRestController(RecetteService recetteService, IngredientService ingredientService) {
+        this.recetteService = recetteService;
+        this.ingredientService = ingredientService;
+    }
 
     @GetMapping(path = "/recettes")
     public ResponseEntity<?> listRecettes() {

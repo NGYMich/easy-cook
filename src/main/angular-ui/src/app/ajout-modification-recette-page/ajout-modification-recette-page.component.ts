@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, FormArray, Form, FormControl} from '@angular/for
 import {Recette} from "../model/recette";
 import {RecetteService} from "../services/RecetteService";
 import {MatTableDataSource} from "@angular/material/table";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-ajout-modification-recette-page',
@@ -15,7 +16,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   modifyRecipeFormIsShown = false;
   deleteRecipeFormIsShown = false;
   isRecetteEnregistree = false;
-  isRecetteSupprimee = false;
+  isRecetteSupprimee = true;
 
   informationsForm: FormGroup;
   ingredientForm: FormGroup;
@@ -26,6 +27,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
 
   categories = ['Entrée', 'Plat', 'Dessert', 'Autres'];
   listeRecettes;
+  deleteOperationSuccessfulSubscription: Subscription;
   constructor(private formBuilder: FormBuilder, private recetteService: RecetteService) {  }
 
   ngOnInit(): void {
@@ -46,15 +48,9 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       temps_cuisson : new FormControl(''),
       note: new FormControl(''),
     })
-    this.recetteService.getRecettes().subscribe(data => {
-      this.listeRecettes = data;
-      console.log(this.listeRecettes);
-      this.listeRecettes.forEach(recette => {
-        recette.temps_total = this.minToHours(Number(recette.temps_preparation) + Number(recette.temps_cuisson));
-        recette.temps_cuisson = this.minToHours(Number(recette.temps_cuisson));
-        recette.temps_preparation = this.minToHours(Number(recette.temps_preparation));
-      })
-    })
+    this.getListeRecettes();
+    this.deleteOperationSuccessfulSubscription = this.recetteService.deleteOperationSuccessfulEvent$.subscribe();
+
 
 
   }
@@ -128,17 +124,39 @@ export class AjoutModificationRecettePageComponent implements OnInit {
     };
     this.recetteService.addRecette(recette);
     this.isRecetteEnregistree = true;
+    this.getListeRecettes();
   }
 
   changeRecetteAffichee(nomRecette) {
     //console.log(nomRecette);
 
   }
-  deleteRecette(nomRecette) {
-    console.log(this.selectedRecetteToDelete)
+  deleteRecette() {
+    // console.log(this.selectedRecetteToDelete)
     this.recetteService.deleteRecette(this.selectedRecetteToDelete);
+
+    this.deleteOperationSuccessfulSubscription = this.recetteService.deleteOperationSuccessfulEvent$
+      .subscribe(isSuccessful => {
+        if (isSuccessful === true) {
+          this.getListeRecettes();
+        } else {
+          console.log('epic fail');
+        }
+      });
+
   }
 
+  async getListeRecettes() {
+    this.recetteService.getRecettes().subscribe(data => {
+      this.listeRecettes = data;
+      console.log(this.listeRecettes);
+      this.listeRecettes.forEach(recette => {
+        recette.temps_total = this.minToHours(Number(recette.temps_preparation) + Number(recette.temps_cuisson));
+        recette.temps_cuisson = this.minToHours(Number(recette.temps_cuisson));
+        recette.temps_preparation = this.minToHours(Number(recette.temps_preparation));
+      })
+    })
+  }
 
 
   minToHours(minutes: number) {

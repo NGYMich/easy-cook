@@ -2,7 +2,7 @@
   <button (click)="showAddRecetteDiv()" class="recipe-button" color="ajout" mat-raised-button>
     Ajouter une nouvelle recette
   </button>
-  <button (click)="showModifyRecetteDiv()" class="recipe-button" color="modification" mat-raised-button *ngIf="false">
+  <button (click)="showModifyRecetteDiv()" class="recipe-button" color="modification" mat-raised-button *ngIf="true">
     Modifier une recette
   </button>
   <button (click)="showDeleteRecetteDiv()" class="recipe-button" color="suppression" mat-raised-button>
@@ -174,9 +174,14 @@
     </mat-form-field>
   </div>
 
-  <button (click)="deleteRecette(selectedRecetteToDelete)" class="suppression-recette-button" color="suppression-recette-etape"
-          mat-raised-button type="button">Supprimer la recette
-  </button>
+
+  <div style="">
+    <button (click)="deleteRecette()" class="suppression-recette-button" color="suppression-recette-etape"
+            mat-raised-button type="button">Supprimer la recette
+    </button>
+    <h3 *ngIf="isRecetteSupprimee">Recette supprimée !</h3>
+  </div>
+
   <br>
   <div *ngIf="selectedRecetteToDelete != null" class="recette-to-delete-infos">
     <br>
