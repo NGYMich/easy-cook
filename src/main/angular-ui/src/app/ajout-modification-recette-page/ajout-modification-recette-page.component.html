@@ -192,7 +192,7 @@
       <form [formGroup]="informationsForm">
         <mat-form-field appearance="legacy">
           <mat-label>Nom de la recette</mat-label>
-          <input formControlName="nom" matInput placeholder={{selectedRecetteToModify.nom}}>
+          <input formControlName="nom" matInput [placeholder]="selectedRecetteToModify.nom">
         </mat-form-field>
         <br>
         <mat-form-field appearance="legacy">
