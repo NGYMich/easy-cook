@@ -142,7 +142,8 @@
             <mat-placeholder class="placeholder">Étape</mat-placeholder>
           </mat-form-field>
 
-          <button (click)="deleteEtape(pointIndex)" class="delete-step-button" color="suppression-ingredient-etape" mat-raised-button
+          <button (click)="deleteEtape(pointIndex)" class="delete-step-button" color="suppression-ingredient-etape"
+                  mat-raised-button
                   type="button">Supprimer
             l'étape
           </button>
@@ -157,7 +158,171 @@
 </div>
 
 <div [hidden]=!modifyRecipeFormIsShown class="modify-recipe-form">
-  Modifions une recette !
+
+
+  <div class="liste-recettes-form-field">
+    <h1>
+      Recette à modifier :
+    </h1>
+    <mat-form-field appearance="legacy">
+      <mat-label>Recette</mat-label>
+      <mat-select (selectionChange)='changeRecetteAffichee(selectedRecetteToDelete)'
+                  [(value)]="selectedRecetteToDelete">
+        <mat-option *ngFor="let recette of listeRecettes" [value]="recette">{{recette.nom}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+
+  <div style="">
+    <button (click)="modifierRecette()" class="modification-recette-button" color="modification-recette-etape"
+            mat-raised-button type="button">Modifier la recette
+    </button>
+    <h3 *ngIf="isRecetteModifiee">Recette modifiée !</h3>
+  </div>
+  <br>
+  <br> <br>
+  <br>
+  <br>
+
+  <div *ngIf="isSelectedRecette" class="modify-recipe-div">
+    <div class="modify-recipe-informations">
+      <h1>
+        Informations
+      </h1>
+
+      <form [formGroup]="informationsForm">
+        <mat-form-field appearance="legacy">
+          <mat-label>Nom de la recette</mat-label>
+          <input formControlName="nom" matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Auteur</mat-label>
+          <input formControlName="auteur" matInput>
+        </mat-form-field>
+        <br>
+
+
+        <mat-form-field appearance="legacy" class="categorie-form-field">
+          <mat-label>Catégorie</mat-label>
+          <mat-select [(value)]="selectedCategory" formControlName="categorie">
+            <mat-option *ngFor="let categorie of categories" [value]="categorie">{{categorie}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Description de la recette</mat-label>
+          <textarea formControlName="description" matInput></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Lien image</mat-label>
+          <input formControlName="lien_image" matInput>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Lien vidéo</mat-label>
+          <input formControlName="lien_video" matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Temps de préparation (en minutes)</mat-label>
+          <input formControlName="temps_preparation" matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Temps de cuisson (en minutes)</mat-label>
+          <input formControlName="temps_cuisson" matInput>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Note (sur 10)</mat-label>
+          <input formControlName="note" matInput>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="modify-recipe-ingredients">
+      <h1>
+        Ingrédients
+      </h1>
+
+
+      <!--    <div class="nombre-personnes">
+            Nombre de personnes :
+            <mat-form-field [floatLabel]="'never'" appearance="legacy" class="nb-personne-formfield">
+              <input class="nb-personne-input" matInput>
+              <mat-placeholder class="placeholder">4</mat-placeholder>
+            </mat-form-field>
+          </div>-->
+
+
+      <form [formGroup]="ingredientForm">
+        <button (click)="addIngredient()" class="ingredient-button" color="ajout-ingredient" mat-raised-button>
+          Ajouter un ingrédient
+        </button>
+        <div formArrayName="ingredients">
+          <div *ngFor="let ingredient of ingredients.controls; let pointIndex=index" [formGroupName]="pointIndex">
+
+
+            <mat-form-field [floatLabel]="'never'" appearance="legacy" class="nom-ingredient-form-field">
+              <input formControlName="nom" matInput/>
+              <mat-placeholder class="placeholder">Ingrédient</mat-placeholder>
+            </mat-form-field>
+
+
+            <mat-form-field [floatLabel]="'never'" appearance="legacy" class="quantite-ingredient-form-field">
+              <input formControlName="quantite" matInput/>
+              <mat-placeholder class="placeholder">Quantité</mat-placeholder>
+            </mat-form-field>
+
+
+            <button (click)="deleteIngredient(pointIndex)" color="suppression-ingredient-etape" mat-raised-button
+                    type="button">Supprimer l'ingrédient
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="modify-recipe-etapes">
+      <h1>
+        Etapes
+      </h1>
+
+      <form [formGroup]="etapeForm">
+        <button (click)="addEtape()" class="ingredient-button" color="ajout-etape" mat-raised-button>
+          Ajouter une étape
+        </button>
+
+
+        <div formArrayName="etapes">
+          <div *ngFor="let etape of etapes.controls; let pointIndex=index" [formGroupName]="pointIndex">
+
+            {{pointIndex + 1}}.
+            <mat-form-field [floatLabel]="'never'" appearance="legacy" class="nom-etape-form-field">
+              <input class="input-etape" formControlName="nom_etape" matInput/>
+              <mat-placeholder class="placeholder">Étape</mat-placeholder>
+            </mat-form-field>
+
+            <button (click)="deleteEtape(pointIndex)" class="delete-step-button" color="suppression-ingredient-etape"
+                    mat-raised-button
+                    type="button">Supprimer
+              l'étape
+            </button>
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+
+
 </div>
 
 <div [hidden]=!deleteRecipeFormIsShown class="delete-recipe-form">
@@ -165,7 +330,7 @@
     Recette à supprimer :
   </h1>
   <div class="liste-recettes-form-field">
-    <mat-form-field appearance="legacy" >
+    <mat-form-field appearance="legacy">
       <mat-label>Recette</mat-label>
       <mat-select (selectionChange)='changeRecetteAffichee(selectedRecetteToDelete)'
                   [(value)]="selectedRecetteToDelete">
@@ -197,8 +362,10 @@
       <div class="ingredients-div">
         <mat-list>
           <div mat-subheader>Ingrédients</div>
-          <mat-selection-list >
-            <mat-list-option checkboxPosition="before" *ngFor="let ingredient of selectedRecetteToDelete.liste_ingredients; let i = index" class="ingredients-list">
+          <mat-selection-list>
+            <mat-list-option checkboxPosition="before"
+                             *ngFor="let ingredient of selectedRecetteToDelete.liste_ingredients; let i = index"
+                             class="ingredients-list">
               {{ingredient.quantite}} {{ingredient.nom}}
             </mat-list-option>
           </mat-selection-list>

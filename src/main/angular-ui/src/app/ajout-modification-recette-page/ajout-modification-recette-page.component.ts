@@ -12,11 +12,13 @@ import {Subscription} from "rxjs";
 })
 export class AjoutModificationRecettePageComponent implements OnInit {
 
-  addRecipeFormIsShown = true;
-  modifyRecipeFormIsShown = false;
+  addRecipeFormIsShown = false;
+  modifyRecipeFormIsShown = true;
   deleteRecipeFormIsShown = false;
   isRecetteEnregistree = false;
-  isRecetteSupprimee = true;
+  isRecetteSupprimee = false;
+  isSelectedRecette = true;
+  isRecetteModifiee = false;
 
   informationsForm: FormGroup;
   ingredientForm: FormGroup;
@@ -89,6 +91,10 @@ export class AjoutModificationRecettePageComponent implements OnInit {
     this.modifyRecipeFormIsShown = false;
     this.deleteRecipeFormIsShown = false;
     this.addRecipeFormIsShown = !this.addRecipeFormIsShown;
+  }
+
+  modifierRecette(){
+
   }
 
   showModifyRecetteDiv() {

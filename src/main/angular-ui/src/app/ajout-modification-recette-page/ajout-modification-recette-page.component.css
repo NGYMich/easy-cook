@@ -2,6 +2,12 @@
   padding: 16px;
 }
 
+
+.modify-recipe-form {
+  margin: 5px auto;
+  text-align: center;
+}
+
 .delete-recipe-form {
   width: 100%;
   margin: 5px auto;
@@ -19,7 +25,7 @@ h3 {
 }
 
 .liste-recettes-form-field {
-  margin-left: 630px;
+  margin-left: 40%;
   width: 20%;
   float: left;
 }
@@ -53,6 +59,30 @@ h3 {
   float: left;
   margin-left: 100px;
   min-width: 300px;
+}
+
+.modify-recipe-informations {
+  margin-left: 0px;
+  float: left;
+  width: 20%;
+}
+
+.modify-recipe-ingredients {
+  float: left;
+  margin-left: 100px;
+  min-width: 600px;
+}
+
+.modify-recipe-etapes {
+  float: left;
+  margin-left: 100px;
+  min-width: 300px;
+}
+
+.modify-recipe-div {
+  padding: 16px;
+  text-align: left;
+  clear: none;
 }
 
 .nb-personne-formfield {
@@ -154,14 +184,20 @@ h3 {
   /*border: 1px solid black;*/
 }
 
+.modification-recette-button {
+  margin-top: 52px;
+  margin-left: 40px;
+  float: left;
+}
+
+
 .suppression-recette-button {
   margin-left: 40px;
   float: left;
 }
 
 .recette-to-delete-infos {
-  display: flex;
-  margin: 50px 0px 0px 0px;
+  margin-left: 150px;
 }
 
 
