@@ -26,7 +26,8 @@ export class AjoutModificationRecettePageComponent implements OnInit {
 
   selectedCategory;
   selectedRecetteToDelete;
-
+  selectedRecetteToModify = {categorie: "", auteur: "", nom: "", description: "", lien_image: "", lien_vieo: "", temps_preparation: "", temps_cuisson: "", temps_total: "", note: "", liste_ingredient: [], liste_etapes: []};
+  //selectedRecetteToModify = new Recette();
   categories = ['Entrée', 'Plat', 'Dessert', 'Autres'];
   listeRecettes;
   deleteOperationSuccessfulSubscription: Subscription;
@@ -94,7 +95,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   }
 
   modifierRecette(){
-
+    console.log(this.selectedRecetteToModify);
   }
 
   showModifyRecetteDiv() {

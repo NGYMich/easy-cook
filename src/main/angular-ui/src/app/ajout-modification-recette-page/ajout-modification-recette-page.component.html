@@ -166,8 +166,8 @@
     </h1>
     <mat-form-field appearance="legacy">
       <mat-label>Recette</mat-label>
-      <mat-select (selectionChange)='changeRecetteAffichee(selectedRecetteToDelete)'
-                  [(value)]="selectedRecetteToDelete">
+      <mat-select (selectionChange)='changeRecetteAffichee(selectedRecetteToModify)'
+                  [(value)]="selectedRecetteToModify">
         <mat-option *ngFor="let recette of listeRecettes" [value]="recette">{{recette.nom}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -181,9 +181,7 @@
     <h3 *ngIf="isRecetteModifiee">Recette modifiée !</h3>
   </div>
   <br>
-  <br> <br>
-  <br>
-  <br>
+
 
   <div *ngIf="isSelectedRecette" class="modify-recipe-div">
     <div class="modify-recipe-informations">
@@ -194,7 +192,7 @@
       <form [formGroup]="informationsForm">
         <mat-form-field appearance="legacy">
           <mat-label>Nom de la recette</mat-label>
-          <input formControlName="nom" matInput>
+          <input formControlName="nom" matInput placeholder={{selectedRecetteToModify.nom}}>
         </mat-form-field>
         <br>
         <mat-form-field appearance="legacy">
