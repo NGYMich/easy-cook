@@ -189,7 +189,7 @@
         Informations
       </h1>
 
-      <form [formGroup]="informationsForm">
+      <form [formGroup]="modifyInformationsForm">
         <mat-form-field appearance="legacy">
           <mat-label>Nom de la recette</mat-label>
           <input formControlName="nom" matInput [(ngModel)]="selectedRecetteToModify.nom">
@@ -259,12 +259,12 @@
           </div>-->
 
 
-      <form [formGroup]="ingredientForm">
-        <button (click)="addIngredient()" class="ingredient-button" color="ajout-ingredient" mat-raised-button>
+      <form [formGroup]="modifyIngredientForm">
+        <button (click)="addModifyIngredient()" class="ingredient-button" color="ajout-ingredient" mat-raised-button>
           Ajouter un ingrédient
         </button>
-        <div formArrayName="ingredients">
-          <div *ngFor="let ingredient of ingredients.controls; let pointIndex=index" [formGroupName]="pointIndex">
+        <div formArrayName="modifyIngredients">
+          <div *ngFor="let ingredient of modifyIngredients.controls; let pointIndex=index" [formGroupName]="pointIndex">
 
 
             <mat-form-field [floatLabel]="'never'" appearance="legacy" class="nom-ingredient-form-field">
@@ -279,7 +279,7 @@
             </mat-form-field>
 
 
-            <button (click)="deleteIngredient(pointIndex)" color="suppression-ingredient-etape" mat-raised-button
+            <button (click)="deleteModifyIngredient(pointIndex)" color="suppression-ingredient-etape" mat-raised-button
                     type="button">Supprimer l'ingrédient
             </button>
           </div>
@@ -287,19 +287,24 @@
       </form>
 
     </div>
+
+
+
+
+
     <div class="modify-recipe-etapes">
       <h1>
         Etapes
       </h1>
 
-      <form [formGroup]="etapeForm">
-        <button (click)="addEtape()" class="ingredient-button" color="ajout-etape" mat-raised-button>
+      <form [formGroup]="modifyEtapeForm">
+        <button (click)="addModifyEtape()" class="ingredient-button" color="ajout-etape" mat-raised-button>
           Ajouter une étape
         </button>
 
 
-        <div formArrayName="etapes">
-          <div *ngFor="let etape of etapes.controls; let pointIndex=index" [formGroupName]="pointIndex">
+        <div formArrayName="modifyEtapes">
+          <div *ngFor="let etape of modifyEtapes.controls; let pointIndex=index" [formGroupName]="pointIndex">
 
             {{pointIndex + 1}}.
             <mat-form-field [floatLabel]="'never'" appearance="legacy" class="nom-etape-form-field">
@@ -307,7 +312,7 @@
               <mat-placeholder class="placeholder">Étape</mat-placeholder>
             </mat-form-field>
 
-            <button (click)="deleteEtape(pointIndex)" class="delete-step-button" color="suppression-ingredient-etape"
+            <button (click)="deleteModifyEtape(pointIndex)" class="delete-step-button" color="suppression-ingredient-etape"
                     mat-raised-button
                     type="button">Supprimer
               l'étape
