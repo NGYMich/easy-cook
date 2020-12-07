@@ -16,7 +16,7 @@ public class Ingredient {
     private Long ingredient_id;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "recette_id", referencedColumnName = "recette_id")
     private Recette recette;
     @Column

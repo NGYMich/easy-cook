@@ -61,12 +61,13 @@ public class RecetteRestController {
                     ingredient.setLien_image(recette.getListe_ingredients().get(i).getLien_image());
                     ingredient.setRecette(recette);
                     listIngredients.add(ingredient);
+                    log.info("iteration : " + i);
                 }
             }
 
             recette.setListe_ingredients(listIngredients);
             resource = recetteService.saveRecette(recette);
-            ingredientService.saveIngredient(ingredient);
+            // ingredientService.saveIngredient(ingredient);
 
 
         }

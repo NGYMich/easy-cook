@@ -45,7 +45,11 @@ public class Recette {
     @Column(name = "note")
     private String note;
 
-    @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL)
+    @Column(name = "nb_personnes")
+    private int nb_personnes;
+
+//    @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ingredient> liste_ingredients = new ArrayList<Ingredient>();
 
     @ElementCollection
