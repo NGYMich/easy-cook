@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS RECETTE (
     temps_cuisson VARCHAR(50),
     temps_total VARCHAR(50),
     note VARCHAR(50),
-    nb_personnes NUMBER
+    nb_personnes SMALLINT
 );
 
 CREATE TABLE IF NOT EXISTS INGREDIENT (
