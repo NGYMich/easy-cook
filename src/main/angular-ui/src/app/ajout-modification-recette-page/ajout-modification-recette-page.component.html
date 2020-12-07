@@ -192,19 +192,19 @@
       <form [formGroup]="informationsForm">
         <mat-form-field appearance="legacy">
           <mat-label>Nom de la recette</mat-label>
-          <input formControlName="nom" matInput [placeholder]="selectedRecetteToModify.nom">
+          <input formControlName="nom" matInput [(ngModel)]="selectedRecetteToModify.nom">
         </mat-form-field>
         <br>
         <mat-form-field appearance="legacy">
           <mat-label>Auteur</mat-label>
-          <input formControlName="auteur" matInput>
+          <input formControlName="auteur" matInput [(ngModel)]="selectedRecetteToModify.auteur">
         </mat-form-field>
         <br>
 
 
         <mat-form-field appearance="legacy" class="categorie-form-field">
           <mat-label>Catégorie</mat-label>
-          <mat-select [(value)]="selectedCategory" formControlName="categorie">
+          <mat-select [(value)]="selectedCategory" formControlName="categorie"   [(ngModel)]="selectedRecetteToModify.categorie">
             <mat-option *ngFor="let categorie of categories" [value]="categorie">{{categorie}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -213,34 +213,34 @@
 
         <mat-form-field appearance="legacy">
           <mat-label>Description de la recette</mat-label>
-          <textarea formControlName="description" matInput></textarea>
+          <textarea formControlName="description" matInput  [(ngModel)]="selectedRecetteToModify.description"></textarea>
         </mat-form-field>
         <br>
         <mat-form-field appearance="legacy">
           <mat-label>Lien image</mat-label>
-          <input formControlName="lien_image" matInput>
+          <input formControlName="lien_image" matInput [(ngModel)]="selectedRecetteToModify.lien_image">
         </mat-form-field>
         <br>
 
         <mat-form-field appearance="legacy">
           <mat-label>Lien vidéo</mat-label>
-          <input formControlName="lien_video" matInput>
+          <input formControlName="lien_video" matInput [(ngModel)]="selectedRecetteToModify.lien_video">
         </mat-form-field>
         <br>
         <mat-form-field appearance="legacy">
           <mat-label>Temps de préparation (en minutes)</mat-label>
-          <input formControlName="temps_preparation" matInput>
+          <input formControlName="temps_preparation" matInput [(ngModel)]="selectedRecetteToModify.temps_preparation">
         </mat-form-field>
         <br>
         <mat-form-field appearance="legacy">
           <mat-label>Temps de cuisson (en minutes)</mat-label>
-          <input formControlName="temps_cuisson" matInput>
+          <input formControlName="temps_cuisson" matInput [(ngModel)]="selectedRecetteToModify.temps_cuisson">
         </mat-form-field>
         <br>
 
         <mat-form-field appearance="legacy">
           <mat-label>Note (sur 10)</mat-label>
-          <input formControlName="note" matInput>
+          <input formControlName="note" matInput [(ngModel)]="selectedRecetteToModify.note">
         </mat-form-field>
       </form>
     </div>
@@ -346,6 +346,8 @@
   </div>
 
   <br>
+  <br>
+
   <div *ngIf="selectedRecetteToDelete != null" class="recette-to-delete-infos">
     <br>
 

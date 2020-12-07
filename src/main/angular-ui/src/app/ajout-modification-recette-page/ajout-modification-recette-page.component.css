@@ -84,6 +84,7 @@ h3 {
   text-align: left;
   clear: none;
   margin-top: 4.5%;
+  /*margin-left: 5%;*/
 }
 
 .nb-personne-formfield {
@@ -170,19 +171,18 @@ h3 {
   height: 800px;
   background-position: center center;
   background-repeat: no-repeat;
-  display: flex;
   border: solid;
-  margin-right: 10px;
-  margin-left: 10%;
   max-width: 40%;
+  float: left;
 }
 
 .information-delete-div {
-  padding: 0px 16px 16px 16px;
+  padding: 0px 16px 16px 32px;
   min-width: 100px;
-  max-width: 1500px;
+  max-width: 60%;
   text-align: left;
   /*border: 1px solid black;*/
+  float:left;
 }
 
 .modification-recette-button {
@@ -199,11 +199,12 @@ h3 {
 
 .recette-to-delete-infos {
   margin-left: 150px;
+  float: left;
 }
 
 
 .ingredients-div {
-  padding: 0px 16px 16px 16px;
+  padding: 0px 16px 16px 0px;
   min-width: 10%;
   max-width: 40%;
   float:left;
