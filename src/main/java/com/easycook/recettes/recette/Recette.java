@@ -46,7 +46,7 @@ public class Recette {
     private String note;
 
     @Column(name = "nb_personnes")
-    private int nb_personnes;
+    private float nb_personnes;
 
 //    @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL)
     @OneToMany(mappedBy="recette", targetEntity = Ingredient.class, cascade = CascadeType.ALL, orphanRemoval = true)
