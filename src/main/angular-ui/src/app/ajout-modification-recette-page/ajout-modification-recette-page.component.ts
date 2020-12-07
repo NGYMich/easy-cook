@@ -134,8 +134,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   }
 
   addModifyEtape() {
-    // this.modifyEtapes.push(this.formBuilder.group({nom_etape: ''}));
-
+    this.modifyEtapes.push(this.formBuilder.group({nom_etape: ''}));
   }
 
   deleteIngredient(index) {

@@ -178,7 +178,7 @@
     <button (click)="modifierRecette()" class="modification-recette-button" color="modification-recette-etape"
             mat-raised-button type="button">Modifier la recette
     </button>
-    <h3 *ngIf="isRecetteModifiee">Recette modifiée !</h3>
+    <h3 style="float: left; margin-left: 22px; margin-top: 60px;" *ngIf="!isRecetteModifiee">Recette modifiée !</h3>
   </div>
   <br>
 
@@ -343,12 +343,12 @@
   </div>
 
 
-  <div style="">
+  <div>
     <button (click)="deleteRecette()" class="suppression-recette-button" color="suppression-recette-etape"
             mat-raised-button type="button">Supprimer la recette
     </button>
-    <h3 *ngIf="isRecetteSupprimee">Recette supprimée !</h3>
   </div>
+  <h3 style="text-align: left; margin-top: 23px;" *ngIf="!isRecetteSupprimee">Recette supprimée !</h3>
 
   <br>
   <br>
