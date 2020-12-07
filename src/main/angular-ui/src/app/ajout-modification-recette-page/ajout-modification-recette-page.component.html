@@ -178,7 +178,7 @@
     <button (click)="modifierRecette()" class="modification-recette-button" color="modification-recette-etape"
             mat-raised-button type="button">Modifier la recette
     </button>
-    <h3 style="float: left; margin-left: 22px; margin-top: 60px;" *ngIf="!isRecetteModifiee">Recette modifiée !</h3>
+    <h3 style="float: left; margin-left: 22px; margin-top: 60px;" *ngIf="isRecetteModifiee">Recette modifiée !</h3>
   </div>
   <br>
 
@@ -204,7 +204,8 @@
 
         <mat-form-field appearance="legacy" class="categorie-form-field">
           <mat-label>Catégorie</mat-label>
-          <mat-select [(value)]="selectedCategory" formControlName="categorie"   [(ngModel)]="selectedRecetteToModify.categorie">
+          <mat-select [(value)]="selectedCategory" formControlName="categorie"
+                      [(ngModel)]="selectedRecetteToModify.categorie">
             <mat-option *ngFor="let categorie of categories" [value]="categorie">{{categorie}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -213,7 +214,7 @@
 
         <mat-form-field appearance="legacy">
           <mat-label>Description de la recette</mat-label>
-          <textarea formControlName="description" matInput  [(ngModel)]="selectedRecetteToModify.description"></textarea>
+          <textarea formControlName="description" matInput [(ngModel)]="selectedRecetteToModify.description"></textarea>
         </mat-form-field>
         <br>
         <mat-form-field appearance="legacy">
@@ -289,9 +290,6 @@
     </div>
 
 
-
-
-
     <div class="modify-recipe-etapes">
       <h1>
         Etapes
@@ -312,7 +310,8 @@
               <mat-placeholder class="placeholder">Étape</mat-placeholder>
             </mat-form-field>
 
-            <button (click)="deleteModifyEtape(pointIndex)" class="delete-step-button" color="suppression-ingredient-etape"
+            <button (click)="deleteModifyEtape(pointIndex)" class="delete-step-button"
+                    color="suppression-ingredient-etape"
                     mat-raised-button
                     type="button">Supprimer
               l'étape
@@ -348,15 +347,18 @@
             mat-raised-button type="button">Supprimer la recette
     </button>
   </div>
-  <h3 style="text-align: left; margin-top: 23px;" *ngIf="!isRecetteSupprimee">Recette supprimée !</h3>
+  <h3 style="text-align: left; margin-top: 23px;" *ngIf="isRecetteSupprimee">Recette supprimée !</h3>
 
   <br>
   <br>
 
   <div *ngIf="selectedRecetteToDelete != null" class="recette-to-delete-infos">
     <br>
+    <br>
+    <div class="image-div">
+      <img class="center-cropped" src={{selectedRecetteToDelete.lien_image}}>
 
-    <img class="center-cropped" src={{selectedRecetteToDelete.lien_image}}>
+    </div>
     <div class="information-delete-div">
 
       <h1>{{selectedRecetteToDelete.nom}}

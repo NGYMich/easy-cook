@@ -12,11 +12,11 @@ import {Subscription} from "rxjs";
 export class AjoutModificationRecettePageComponent implements OnInit {
 
   addRecipeFormIsShown = false;
-  modifyRecipeFormIsShown = true;
-  deleteRecipeFormIsShown = false;
+  modifyRecipeFormIsShown = false;
+  deleteRecipeFormIsShown = true;
   isRecetteEnregistree = false;
   isRecetteSupprimee = false;
-  isSelectedRecette = true;
+  isSelectedRecette = false;
   isRecetteModifiee = false;
 
   informationsForm: FormGroup;
@@ -122,7 +122,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   }
 
   addIngredient() {
-    this.ingredients.push(this.formBuilder.group({nom: 'dsq', quantite: ''}));
+    this.ingredients.push(this.formBuilder.group({nom: '', quantite: ''}));
   }
 
   addModifyIngredient() {
@@ -158,18 +158,27 @@ export class AjoutModificationRecettePageComponent implements OnInit {
     this.modifyRecipeFormIsShown = false;
     this.deleteRecipeFormIsShown = false;
     this.addRecipeFormIsShown = !this.addRecipeFormIsShown;
+    this.hideAllDivWhenAddModifyOrDelete();
   }
 
+  hideAllDivWhenAddModifyOrDelete() {
+    this.isRecetteEnregistree = false;
+    this.isRecetteSupprimee = false;
+    this.isSelectedRecette = false;
+    this.isRecetteModifiee = false;
+  }
   showModifyRecetteDiv() {
     this.addRecipeFormIsShown = false;
     this.deleteRecipeFormIsShown = false;
     this.modifyRecipeFormIsShown = !this.modifyRecipeFormIsShown;
+    this.hideAllDivWhenAddModifyOrDelete();
   }
 
   showDeleteRecetteDiv() {
     this.addRecipeFormIsShown = false;
     this.modifyRecipeFormIsShown = false;
     this.deleteRecipeFormIsShown = !this.deleteRecipeFormIsShown;
+    this.hideAllDivWhenAddModifyOrDelete();
   }
 
   addRecette() {
@@ -187,7 +196,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       temps_preparation: this.informationsForm.get('temps_preparation').value,
       temps_cuisson: this.informationsForm.get('temps_cuisson').value,
       temps_total: null,
-      note: this.informationsForm.get('note').value,
+      note: this.informationsForm.get('note').value + "/10",
       liste_ingredients: this.ingredients.value,
       liste_etapes: etapesArray
     };
@@ -212,7 +221,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       temps_preparation: this.modifyInformationsForm.get('temps_preparation').value,
       temps_cuisson: this.modifyInformationsForm.get('temps_cuisson').value,
       temps_total: null,
-      note: this.modifyInformationsForm.get('note').value,
+      note: this.modifyInformationsForm.get('note').value + "/10",
       liste_ingredients: this.modifyIngredients.value,
       liste_etapes: modifiedEtapesArray
     };
@@ -223,6 +232,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   }
 
   changeRecetteAffichee(nomRecette) {
+    this.isSelectedRecette = true;
     // modifier les ingrédients
     this.modifyIngredients.clear();
     for (var i = 0; i < this.selectedRecetteToModify.liste_ingredients.length; i++) {
@@ -246,6 +256,8 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       .subscribe(isSuccessful => {
         if (isSuccessful === true) {
           this.getListeRecettes();
+          this.isRecetteSupprimee = true;
+          this.selectedRecetteToDelete = null;
         } else {
           console.log('epic fail');
         }

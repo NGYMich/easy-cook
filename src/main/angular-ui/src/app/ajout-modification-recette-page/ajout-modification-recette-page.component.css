@@ -172,8 +172,13 @@ h3 {
   background-position: center center;
   background-repeat: no-repeat;
   border: solid;
-  max-width: 40%;
   float: left;
+  max-width: 100%;
+}
+
+.image-div {
+  min-width: 10%;
+  max-width: 600px;
 }
 
 .information-delete-div {
@@ -199,8 +204,7 @@ h3 {
 }
 
 .recette-to-delete-infos {
-  margin-left: 150px;
-  float: left;
+  margin-left: 15%;
 }
 
 
@@ -231,3 +235,37 @@ mat-divider {
   max-height: 50px;
   text-align: justify;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  float: left;
+}
+.one {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  border: 1px solid;
+}
+.two {
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+}
+.three {
+  grid-column: 1;
+  grid-row: 2 / 5;
+}
+.four {
+  grid-column: 3;
+  grid-row: 3;
+}
+.five {
+  grid-column: 2;
+  grid-row: 4;
+}
+.six {
+  grid-column: 3;
+  grid-row: 4;
+}
+
