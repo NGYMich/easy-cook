@@ -172,6 +172,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
     this.deleteRecipeFormIsShown = false;
     this.modifyRecipeFormIsShown = !this.modifyRecipeFormIsShown;
     this.hideAllDivWhenAddModifyOrDelete();
+    this.getListeRecettes();
   }
 
   showDeleteRecetteDiv() {
@@ -179,12 +180,14 @@ export class AjoutModificationRecettePageComponent implements OnInit {
     this.modifyRecipeFormIsShown = false;
     this.deleteRecipeFormIsShown = !this.deleteRecipeFormIsShown;
     this.hideAllDivWhenAddModifyOrDelete();
+    this.getListeRecettes();
   }
 
   addRecette() {
     var etapesArray = this.etapes.value.map(a => a.nom_etape);
     var ingredientsArray = null;
-
+    var newNote = this.informationsForm.get('note').value == "" ? "" : this.informationsForm.get('note').value + "/10";
+    console.log(this.informationsForm.get('note').value);
     const recette: Recette = {
       recetteId: null,
       categorie: this.informationsForm.get('categorie').value,
@@ -196,7 +199,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       temps_preparation: this.informationsForm.get('temps_preparation').value,
       temps_cuisson: this.informationsForm.get('temps_cuisson').value,
       temps_total: null,
-      note: this.informationsForm.get('note').value + "/10",
+      note: newNote,
       liste_ingredients: this.ingredients.value,
       liste_etapes: etapesArray
     };
@@ -208,7 +211,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   modifierRecette() {
     // console.log('recette à modifier : ' + this.selectedRecetteToModify);
     var modifiedEtapesArray = this.modifyEtapes.value.map(a => a.nom_etape);
-
+    var newNote = this.modifyInformationsForm.get('note').value == "" ? "" : this.modifyInformationsForm.get('note').value + "/10";
     //console.log(this.modifyIngredients.value);
     const modifiedRecette: Recette = {
       recetteId: this.selectedRecetteToModify.recetteId,
@@ -221,7 +224,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       temps_preparation: this.modifyInformationsForm.get('temps_preparation').value,
       temps_cuisson: this.modifyInformationsForm.get('temps_cuisson').value,
       temps_total: null,
-      note: this.modifyInformationsForm.get('note').value + "/10",
+      note: newNote,
       liste_ingredients: this.modifyIngredients.value,
       liste_etapes: modifiedEtapesArray
     };
@@ -269,11 +272,11 @@ export class AjoutModificationRecettePageComponent implements OnInit {
     this.recetteService.getRecettes().subscribe(data => {
       this.listeRecettes = data;
       //console.log(this.listeRecettes);
-      this.listeRecettes.forEach(recette => {
+/*      this.listeRecettes.forEach(recette => {
         recette.temps_total = this.minToHours(Number(recette.temps_preparation) + Number(recette.temps_cuisson));
         recette.temps_cuisson = this.minToHours(Number(recette.temps_cuisson));
         recette.temps_preparation = this.minToHours(Number(recette.temps_preparation));
-      })
+      })*/
     })
   }
 

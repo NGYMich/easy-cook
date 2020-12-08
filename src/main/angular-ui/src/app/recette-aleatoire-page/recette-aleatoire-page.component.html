@@ -1,1 +1,62 @@
-<p>recette-aleatoire-page works!</p>
+<div style="text-align: center;">
+  <button (click)="showRandomRecette()" class="random-button" color="random" mat-raised-button>
+    Génerer une recette aléatoire !
+  </button>
+</div>
+
+
+<div>
+
+  <div class="image-div">
+    <img class="center-cropped" src={{selectedRandomRecette.lien_image}}>
+  </div>
+
+  <div class="informations-random-recette-div">
+    <h1 style="font-size: 30px;">{{selectedRandomRecette.nom}}
+    </h1>
+
+    <h3 style="font-size: 20px;"> {{selectedRandomRecette.description}}</h3>
+    <div class="ingredients-div">
+
+      <mat-list>
+        <div mat-subheader>Ingrédients</div>
+        <mat-selection-list>
+          <mat-list-option checkboxPosition="before"
+                           *ngFor="let ingredient of selectedRandomRecette.liste_ingredients">{{ingredient.quantite}} {{ingredient.nom}} </mat-list-option>
+        </mat-selection-list>
+      </mat-list>
+    </div>
+    <div class="etapes-div">
+      <mat-list>
+        <div mat-subheader>Étapes</div>
+        <mat-list-item *ngFor="let etape of selectedRandomRecette.liste_etapes; let i = index;" class="etapes-list">
+          {{i + 1}}. {{etape}}
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <!--  <div class="ingredients-div">
+        <mat-list>
+          <div mat-subheader>Ingrédients</div>
+          <mat-selection-list>
+            <mat-list-option checkboxPosition="before" *ngFor="let ingredient of selectedRandomRecette.liste_ingredients; let i = index;" class="ingredients-list">
+              {{ingredient.quantite}} {{ingredient.nom}}
+            </mat-list-option>
+          </mat-selection-list>
+        </mat-list>
+      </div>
+      <div class="etapes-div">
+        <mat-list>
+          <div mat-subheader>Étapes</div>
+          <mat-list-item *ngFor="let etape of selectedRandomRecette.liste_etapes; let i = index;" class="etapes-list">
+            {{i + 1}}. {{etape}}
+          </mat-list-item>
+        </mat-list>
+      </div>-->
+
+  </div>
+
+
+</div>
+
+
