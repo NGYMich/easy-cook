@@ -13,7 +13,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
 
   addRecipeFormIsShown = false;
   modifyRecipeFormIsShown = false;
-  deleteRecipeFormIsShown = true;
+  deleteRecipeFormIsShown = false;
   isRecetteEnregistree = false;
   isRecetteSupprimee = false;
   isSelectedRecette = false;
@@ -33,6 +33,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   selectedRecetteToModify = {
     recetteId: "",
     categorie: "",
+    nb_personnes: "",
     auteur: "",
     nom: "",
     description: "",
@@ -46,7 +47,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
     liste_etapes: []
   };
   //selectedRecetteToModify = new Recette();
-  categories = ['Entrée', 'Plat', 'Dessert', 'Autres'];
+  categories = ['Entrée', 'Plat', 'Dessert', 'Side Dish', 'Autres'];
   listeRecettes;
   deleteOperationSuccessfulSubscription: Subscription;
 
@@ -88,6 +89,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       nom: new FormControl(''),
       auteur: new FormControl(''),
       categorie: new FormControl(''),
+      nb_personnes: new FormControl(''),
       description: new FormControl(''),
       lien_image: new FormControl(''),
       lien_video: new FormControl(''),
@@ -108,6 +110,7 @@ export class AjoutModificationRecettePageComponent implements OnInit {
       nom: new FormControl(''),
       auteur: new FormControl(''),
       categorie: new FormControl(''),
+      nb_personnes: new FormControl(''),
       description: new FormControl(''),
       lien_image: new FormControl(''),
       lien_video: new FormControl(''),
@@ -186,11 +189,12 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   addRecette() {
     var etapesArray = this.etapes.value.map(a => a.nom_etape);
     var ingredientsArray = null;
-    var newNote = this.informationsForm.get('note').value == "" ? "" : this.informationsForm.get('note').value + "/10";
+    var newNote = this.informationsForm.get('note').value == "" ? "?" : this.informationsForm.get('note').value;
     console.log(this.informationsForm.get('note').value);
     const recette: Recette = {
       recetteId: null,
       categorie: this.informationsForm.get('categorie').value,
+      nb_personnes: this.informationsForm.get('nb_personnes').value,
       auteur: this.informationsForm.get('auteur').value,
       nom: this.informationsForm.get('nom').value,
       description: this.informationsForm.get('description').value,
@@ -211,11 +215,12 @@ export class AjoutModificationRecettePageComponent implements OnInit {
   modifierRecette() {
     // console.log('recette à modifier : ' + this.selectedRecetteToModify);
     var modifiedEtapesArray = this.modifyEtapes.value.map(a => a.nom_etape);
-    var newNote = this.modifyInformationsForm.get('note').value == "" ? "" : this.modifyInformationsForm.get('note').value + "/10";
+    var newNote = this.modifyInformationsForm.get('note').value == "" ? "?" : this.modifyInformationsForm.get('note').value;
     //console.log(this.modifyIngredients.value);
     const modifiedRecette: Recette = {
       recetteId: this.selectedRecetteToModify.recetteId,
       categorie: this.modifyInformationsForm.get('categorie').value,
+      nb_personnes: this.modifyInformationsForm.get('nb_personnes').value,
       auteur: this.modifyInformationsForm.get('auteur').value,
       nom: this.modifyInformationsForm.get('nom').value,
       description: this.modifyInformationsForm.get('description').value,

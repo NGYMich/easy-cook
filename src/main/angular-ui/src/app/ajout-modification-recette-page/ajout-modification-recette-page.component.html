@@ -37,6 +37,11 @@
       </mat-form-field>
       <br>
 
+      <mat-form-field appearance="legacy">
+        <mat-label>Nombre de personnes</mat-label>
+        <input formControlName="nb_personnes" matInput>
+      </mat-form-field>
+      <br>
 
       <mat-form-field appearance="legacy">
         <mat-label>Description de la recette</mat-label>
@@ -70,6 +75,8 @@
         <input formControlName="note" matInput>
       </mat-form-field>
       <br>
+
+
       <button (click)="addRecette()" class="add-recette-button" color="add-recette" mat-raised-button type="button">
         Enregistrer la recette
       </button>
@@ -208,6 +215,12 @@
                       [(ngModel)]="selectedRecetteToModify.categorie">
             <mat-option *ngFor="let categorie of categories" [value]="categorie">{{categorie}}</mat-option>
           </mat-select>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="legacy">
+          <mat-label>Nombre de personnes</mat-label>
+          <input formControlName="nb_personnes" matInput [(ngModel)]="selectedRecetteToModify.nb_personnes">
         </mat-form-field>
         <br>
 

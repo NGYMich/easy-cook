@@ -17,7 +17,7 @@
 
 .mat-column-nom {
   flex: none;
-  width: 70%;
+  width: 60%;
 }
 
 
@@ -72,7 +72,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .etapes-div {
-  padding: 6px 16px 10px 16px;
+  padding: 0px 16px 10px 16px;
   min-width: 0%;
   max-width: 40%;
 }

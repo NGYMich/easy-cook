@@ -1,5 +1,6 @@
 export class Recette {
   recetteId: string;
+  nb_personnes: number;
   categorie: string;
   auteur: string;
   nom: string;
@@ -12,5 +13,4 @@ export class Recette {
   note: string;
   liste_ingredients: [];
   liste_etapes: [];
-
 }

@@ -24,7 +24,7 @@ export class RecetteService {
   private _deleteOperationSuccessfulEvent$: Subject<boolean> = new Subject();
 
   getRecettes() {
-    console.log(this.rootURL + 'api/recettes');
+    console.log(this.rootURL + '/recettes');
     return this.http.get(this.rootURL + '/recettes');
   }
 
@@ -34,7 +34,7 @@ export class RecetteService {
 
 
     return this.http.post<Recette>(this.rootURL + '/recette', body, {'headers': headers}).subscribe(
-      data => console.log('success', data),
+      data => console.log('added recette', data),
       error => console.log('oops', error)
     );
   }
